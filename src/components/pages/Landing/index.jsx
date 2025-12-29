@@ -32,7 +32,16 @@ export const LandingPage = () => {
 
   return (
     <div className='flex-c w-[100vw] secondary-c'>
-      Landing Page
+      <section className='flex primary-c pt-4 pb-8'>
+        <div className='flex-c mx-auto'>
+          <h1 className='text-6xl mb-8 text-white'>
+            Asylum Office Grant Rate Tracker</h1>
+          <h3 className='text-white'>
+            The Asylum Office Grant Rate Tracker provides asylum seekers,
+            researchers, policymakers, and the public an interactive tool
+            to explore USCIS data on Asylum Office decisions</h3>
+        </div>
+      </section>
       <div>{'Type this into Canvas: ' + decodeBase64('VGltZTJDb2RlIQ==')}</div>
     </div>
   );
