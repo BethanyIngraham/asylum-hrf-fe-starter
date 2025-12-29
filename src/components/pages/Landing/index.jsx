@@ -1,7 +1,7 @@
 import pieChart from '../../../assets/pie-chart.png';
 import lineGraph from '../../../assets/line-graph.png';
 import barGraph from '../../../assets/bar-graph.png';
-//import paperStack from '../../../assets/paper-stack.jpg';
+import paperStack from '../../../assets/paper-stack.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
 //import {decodeBase64} from '../../../utils/decodeBase64.js';
@@ -66,10 +66,25 @@ export const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section>
-        <div></div>
-        <div></div>
+      <section className='flex middle-section'>
+        <div className='flex-1 stack-img-container content-center p-20'>
+          <img src={paperStack} alt='Human Rights First' 
+          className='stack-img rounded-2xl h-[70%] w-[100%]'/>
+        </div>
+        <div className='flex-1 middle section text-container content-center p-20'>
+          <p className='text-2xl'>
+          Human Rights First has created a search tool 
+          to give you a user-friendly way to explore a data set 
+          of asylum decisions between FY 2016 and May 2021 by the
+          USCIS Asylum Office, which we received through a Freedom
+          of Information Act request. You can search for information
+          on asylum grant rates by year, nationality, and asylum office,
+          visualize the data with charts and heat maps, and download 
+          the data set.
+          </p>
+        </div>
       </section>
+      <section className='flex stats-section'></section>
     </div>
   );
 };
