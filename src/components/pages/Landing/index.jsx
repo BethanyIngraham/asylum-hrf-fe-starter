@@ -1,7 +1,7 @@
-// import pieChart from '../../../assets/pie-chart.png';
-// import lineGraph from '../../../assets/line-graph.png';
-// import barGraph from '../../../assets/bar-graph.png';
-// import paperStack from '../../../assets/paper-stack.jpg';
+import pieChart from '../../../assets/pie-chart.png';
+import lineGraph from '../../../assets/line-graph.png';
+import barGraph from '../../../assets/bar-graph.png';
+//import paperStack from '../../../assets/paper-stack.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
 import {decodeBase64} from '../../../utils/decodeBase64.js';
@@ -42,7 +42,25 @@ export const LandingPage = () => {
             to explore USCIS data on Asylum Office decisions</h3>
         </div>
       </section>
-      <div>{'Type this into Canvas: ' + decodeBase64('VGltZTJDb2RlIQ==')}</div>
+      <section className='graphs-section flex-c pt-10'>
+        <div className='flex-c'>
+          <div className='flex justify-center m-14 gap-20 text-2xl'>
+            <div className='flex-c gap-3'>
+              <img src={barGraph} className='h-[300px] w-[500px]'/>
+              <h3>Search Grant Rates By Office</h3>
+            </div>
+            <div className='flex-c gap-3'>
+              <img src={pieChart} className='h-[300px] contain-content'/>
+              <h3>Search Grant Rates By Nationality</h3>
+            </div>
+            <div className='flex-c gap-3'>
+              <img src={lineGraph} className='h-[300px] w-[500px]'/>
+              <h3>Search Grant Rates Over Time</h3>
+            </div>
+            <div></div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
