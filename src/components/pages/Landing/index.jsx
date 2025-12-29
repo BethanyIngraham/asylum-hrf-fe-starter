@@ -4,7 +4,7 @@ import barGraph from '../../../assets/bar-graph.png';
 //import paperStack from '../../../assets/paper-stack.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useDownloadData } from '../../../hooks/useDownloadData.js';
-import {decodeBase64} from '../../../utils/decodeBase64.js';
+//import {decodeBase64} from '../../../utils/decodeBase64.js';
 
 /**
  * TODO: Ticket 1:
@@ -32,9 +32,9 @@ export const LandingPage = () => {
 
   return (
     <div className='flex-c w-[100vw] secondary-c'>
-      <section className='flex primary-c pt-4 pb-8'>
-        <div className='flex-c mx-auto'>
-          <h1 className='text-6xl mb-8 text-white'>
+      <section className='flex primary-c pt-8 pb-8'>
+        <div className='flex-col mx-auto'>
+          <h1 className='text-6xl mb-6 text-white'>
             Asylum Office Grant Rate Tracker</h1>
           <h3 className='text-white'>
             The Asylum Office Grant Rate Tracker provides asylum seekers,
@@ -42,24 +42,33 @@ export const LandingPage = () => {
             to explore USCIS data on Asylum Office decisions</h3>
         </div>
       </section>
-      <section className='graphs-section flex-c pt-10'>
-        <div className='flex-c'>
-          <div className='flex justify-center m-14 gap-20 text-2xl'>
-            <div className='flex-c gap-3'>
+      <section className='graphs-section flex-col pt-10'>
+        <div className='flex-col'>
+          <div className='flex justify-center m-8 gap-20 text-2xl'>
+            <div className='flex-col gap-3'>
               <img src={barGraph} className='h-[300px] w-[500px]'/>
               <h3>Search Grant Rates By Office</h3>
             </div>
-            <div className='flex-c gap-3'>
+            <div className='flex-col gap-3'>
               <img src={pieChart} className='h-[300px] contain-content'/>
               <h3>Search Grant Rates By Nationality</h3>
             </div>
-            <div className='flex-c gap-3'>
+            <div className='flex-col gap-3'>
               <img src={lineGraph} className='h-[300px] w-[500px]'/>
               <h3>Search Grant Rates Over Time</h3>
             </div>
-            <div></div>
+          </div>
+          <div className='flex justify-center mx-auto gap-8'>
+            <button className='bg-stone-400 px-[10px] py-[5px] 
+            text-white text-base font-semibold'> View The Data</button>
+            <button className='bg-stone-400 px-[10px] py-[5px] 
+            text-white text-base font-semibold'>Download The Data</button>
           </div>
         </div>
+      </section>
+      <section>
+        <div></div>
+        <div></div>
       </section>
     </div>
   );
