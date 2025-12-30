@@ -44,7 +44,7 @@ export const LandingPage = () => {
       </section>
       <section className='graphs-section flex-col pt-10'>
         <div className='flex-col'>
-          <div className='flex justify-center m-8 gap-20 text-2xl'>
+          <div className='flex justify-center m-10 gap-20 text-2xl'>
             <div className='flex-col gap-3'>
               <img src={barGraph} className='h-[300px] w-[500px]'/>
               <h3>Search Grant Rates By Office</h3>
@@ -58,7 +58,7 @@ export const LandingPage = () => {
               <h3>Search Grant Rates Over Time</h3>
             </div>
           </div>
-          <div className='flex justify-center mx-auto gap-8'>
+          <div className='flex justify-center mx-auto gap-10'>
             <button className='bg-stone-400 px-[10px] py-[5px] 
             text-white text-base font-semibold'> View The Data</button>
             <button className='bg-stone-400 px-[10px] py-[5px] 
@@ -66,12 +66,12 @@ export const LandingPage = () => {
           </div>
         </div>
       </section>
-      <section className='flex middle-section'>
-        <div className='flex-1 stack-img-container content-center p-20'>
+      <section className='hrf-statement-section flex'>
+        <div className='flex-1 content-center p-20'>
           <img src={paperStack} alt='Human Rights First' 
           className='stack-img rounded-2xl h-[70%] w-[100%]'/>
         </div>
-        <div className='flex-1 middle section text-container content-center p-20'>
+        <div className='flex-1 content-center p-20'>
           <p className='text-2xl'>
           Human Rights First has created a search tool 
           to give you a user-friendly way to explore a data set 
@@ -84,7 +84,49 @@ export const LandingPage = () => {
           </p>
         </div>
       </section>
-      <section className='flex stats-section'></section>
+      <section className='insights-section flex flex-col gap-14'>
+        <div className='header'>
+          <h3 className='text-5xl'>Systemic Disparity Insights</h3>
+        </div>
+        <div className='flex justify-between w-[100%] text-3xl'>
+          <div className='flex flex-col justify-between w-[33%] h-[200px] gap-12'>
+            <div className='header'>
+              <h3 className='text 5xl'>36%</h3>
+            </div>
+            <div className='text'>
+              <p className='text-lg'>
+              By the end of the Trump administration, 
+              the average asylum office grant rate had 
+              fallen 36% from an average of 44 percent in 
+              fiscal year 2016 to 28 percent in fiscal year 20202.
+              </p>
+            </div>
+          </div>
+          <div className='flex flex-col justify-start w-[33%] h-[200px] gap-12'>
+            <div className='header'>
+              <h3 className='text 5xl'>5%</h3>
+            </div>
+            <div className='text'>
+              <p className='text-lg'>
+              The New York asylum office grant rate 
+              dropped to 5 percent in fiscal year 2020.
+              </p>
+            </div>
+          </div>
+          <div className='flex flex-col w-[33%]  h-[400px] gap-12'>
+            <div className='insights-section-content header'>
+              <h3 className='text 5xl'>6x Lower</h3>
+            </div>
+            <div className='insights-section-content text'>
+              <p className='text-lg'>
+              Between fiscal year 2017 and 2020, the New York
+              asylum office's average grant rate was 6 times 
+              lower than the San Francisco asylum office.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
