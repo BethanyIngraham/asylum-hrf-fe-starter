@@ -50,7 +50,7 @@ export const LandingPage = () => {
               <h3>Search Grant Rates By Office</h3>
             </div>
             <div className='flex-col gap-3'>
-              <img src={pieChart} className='h-[300px] contain-content'/>
+              <img src={pieChart} className='h-[300px]'/>
               <h3>Search Grant Rates By Nationality</h3>
             </div>
             <div className='flex-col gap-3'>
@@ -59,20 +59,20 @@ export const LandingPage = () => {
             </div>
           </div>
           <div className='flex justify-center mx-auto gap-10'>
-            <button className='bg-stone-400 px-[10px] py-[5px] 
+            <button className='bg-stone-400 px-[15px] py-[10px] 
             text-white text-base font-semibold'> View The Data</button>
-            <button className='bg-stone-400 px-[10px] py-[5px] 
+            <button className='bg-stone-400 px-[15px] py-[10px] 
             text-white text-base font-semibold'>Download The Data</button>
           </div>
         </div>
       </section>
       <section className='hrf-statement-section flex'>
-        <div className='flex-1 content-center p-20'>
+        <div className='flex-1 place-content-center p-20'>
           <img src={paperStack} alt='Human Rights First' 
           className='stack-img rounded-2xl h-[70%] w-[100%]'/>
         </div>
-        <div className='flex-1 content-center p-20'>
-          <p className='text-2xl'>
+        <div className='flex-1 place-content-center p-20'>
+          <p className='text-lg'>
           Human Rights First has created a search tool 
           to give you a user-friendly way to explore a data set 
           of asylum decisions between FY 2016 and May 2021 by the
@@ -84,12 +84,12 @@ export const LandingPage = () => {
           </p>
         </div>
       </section>
-      <section className='insights-section flex flex-col gap-14'>
+      <section className='insights-section flex flex-col gap-16'>
         <div className='header'>
           <h3 className='text-5xl'>Systemic Disparity Insights</h3>
         </div>
-        <div className='flex justify-between w-[100%] text-3xl'>
-          <div className='flex flex-col justify-between w-[33%] h-[200px] gap-12'>
+        <div className='flex justify-between text-4xl m-12 gap-20'>
+          <div className='flex flex-col w-[33%] h-[200px] gap-12'>
             <div className='header'>
               <h3 className='text 5xl'>36%</h3>
             </div>
@@ -102,7 +102,7 @@ export const LandingPage = () => {
               </p>
             </div>
           </div>
-          <div className='flex flex-col justify-start w-[33%] h-[200px] gap-12'>
+          <div className='flex flex-col w-[33%] h-[200px] gap-12'>
             <div className='header'>
               <h3 className='text 5xl'>5%</h3>
             </div>
@@ -113,11 +113,11 @@ export const LandingPage = () => {
               </p>
             </div>
           </div>
-          <div className='flex flex-col w-[33%]  h-[400px] gap-12'>
-            <div className='insights-section-content header'>
+          <div className='flex flex-col w-[33%] h-[200px] gap-12'>
+            <div className='header'>
               <h3 className='text 5xl'>6x Lower</h3>
             </div>
-            <div className='insights-section-content text'>
+            <div className='text'>
               <p className='text-lg'>
               Between fiscal year 2017 and 2020, the New York
               asylum office's average grant rate was 6 times 
@@ -126,6 +126,15 @@ export const LandingPage = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section className='read-more section'>
+        <button className='bg-stone-400 px-[15px] py-[10px] 
+            text-white text-base font-semibold'>Read More</button>
+      </section>
+      <section className='back-to-top-section m-10 p-8'>
+        <button className='text-lg'>
+          Back To Top ^
+        </button>
       </section>
     </div>
   );
