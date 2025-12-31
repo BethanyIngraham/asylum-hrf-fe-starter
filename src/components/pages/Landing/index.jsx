@@ -28,6 +28,7 @@ export const LandingPage = () => {
 
   const handleReadMore = () => {
     // TODO: navigate to the humanrightsfirst.org homepage
+    navigate('https://humanrightsfirst.org/');
   };
 
   return (
@@ -62,7 +63,7 @@ export const LandingPage = () => {
             <button className='bg-stone-400 px-[15px] py-[10px] 
             text-white text-base font-semibold'> View The Data</button>
             <button className='bg-stone-400 px-[15px] py-[10px] 
-            text-white text-base font-semibold'>Download The Data</button>
+            text-white text-base font-semibold' onClick={downloadCSV}>Download The Data</button>
           </div>
         </div>
       </section>
@@ -129,10 +130,10 @@ export const LandingPage = () => {
       </section>
       <section className='read-more section'>
         <button className='bg-stone-400 px-[15px] py-[10px] 
-            text-white text-base font-semibold'>Read More</button>
+            text-white text-base font-semibold' onClick={handleReadMore}>Read More</button>
       </section>
       <section className='back-to-top-section m-10 p-8'>
-        <button className='text-lg'>
+        <button className='text-lg' onClick={scrollToTop}>
           Back To Top ^
         </button>
       </section>
