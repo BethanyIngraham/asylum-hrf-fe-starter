@@ -5,46 +5,101 @@ import { useLocalStorage } from '../hooks/useLocalStorage.js';
 
 const AppContext = createContext({});
 
-/**
- * TODO: Ticket 2:
- * - Use axios to fetch the data
- * - Store the data
- * - Populate the graphs with the stored data
- */
 const useAppContextProvider = () => {
   const [graphData, setGraphData] = useState(testData);
   const [isDataLoading, setIsDataLoading] = useState(false);
 
   useLocalStorage({ graphData, setGraphData });
+  
+  /**
+   * Retrieves and combines fiscal data with citizenship results.
+   * 
+   * @async
+   * @function getData
+   * @returns {Promise<Object>} A promise that resolves to the fiscal data object with citizenship results attached
+   * @throws {Error} May throw if getFiscalData() or getCitizenshipResults() fail
+   * 
+   * @example
+   * const data = await getData();
+   * console.log(data.citizenshipResults);
+   */
+  const getData = async () => {
+    const fiscalData = await getFiscalData()
+    const citizenshipData = await getCitizenshipResults()
+    fiscalData.citizenshipResults = citizenshipData
+    return fiscalData
+  }
 
-  const URL = 'https://asylum-be.onrender.com';
-  const fiscalYearDataEndpoint = '/fiscalSummary';
-  const citizenshipDataEndpoint = '/citizenshipSummary';
-
-  const getFiscalData = () => {
-    // TODO: Replace this with functionality to retrieve the data from the fiscalSummary endpoint
-    const fiscalDataRes = testData;
-    return fiscalDataRes;
+  /**
+ * Fetches fiscal summary data from the asylum backend API.
+ * 
+ * @async
+ * @function getFiscalData
+ * @returns {Promise<Object>} A promise that resolves to the fiscal summary data
+ * @throws {Error} Throws if the API request fails
+ * 
+ * @example
+ * const fiscal = await getFiscalData();
+ */
+const getFiscalData = async () => {
+    const fiscalDataRes = await axios.get('https://asylum-be.onrender.com/fiscalSummary')
+    const fiscalData = fiscalDataRes.data
+    return fiscalData;
   };
 
+/**
+ * Fetches citizenship summary data from the asylum backend API.
+ * 
+ * @async
+ * @function getCitizenshipResults
+ * @returns {Promise<Object>} A promise that resolves to the citizenship summary data
+ * @throws {Error} Throws if the API request fails
+ * 
+ * @example
+ * const citizenship = await getCitizenshipResults();
+ */
   const getCitizenshipResults = async () => {
-    // TODO: Replace this with functionality to retrieve the data from the citizenshipSummary endpoint
-    const citizenshipRes = testData.citizenshipResults;
-    return citizenshipRes;
+    const citizenshipRes = await axios.get('https://asylum-be.onrender.com/citizenshipSummary')
+    const citizenshipData = citizenshipRes.data
+    return citizenshipData;
   };
 
+/**
+ * Updates the query by fetching fresh data and updating the graph display.
+ * Sets loading state during the data fetch operation.
+ * 
+ * @async
+ * @function updateQuery
+ * @returns {Promise<void>} A promise that resolves when the update is complete
+ * 
+ * @example
+ * await updateQuery();
+ */
   const updateQuery = async () => {
     setIsDataLoading(true);
+    setGraphData(await fetchData())
+    setIsDataLoading(false)
   };
 
+/**
+ * Fetches all data by calling getData().
+ * 
+ * @async
+ * @function fetchData
+ * @returns {Promise<Object>} A promise that resolves to the combined data object
+ * 
+ * @example
+ * const data = await fetchData();
+ */
   const fetchData = async () => {
-    // TODO: fetch all the required data and set it to the graphData state
+        return await getData()
+
   };
 
   const clearQuery = () => {
     setGraphData({});
   };
-
+// console.log(graphData.yearResults.map(({ fiscal_year }) => Number(fiscal_year)))
   const getYears = () => graphData?.yearResults?.map(({ fiscal_year }) => Number(fiscal_year)) ?? [];
 
   useEffect(() => {
