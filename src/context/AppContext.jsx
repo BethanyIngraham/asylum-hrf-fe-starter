@@ -17,6 +17,10 @@ const useAppContextProvider = () => {
 
   useLocalStorage({ graphData, setGraphData });
 
+  const URL = 'https://asylum-be.onrender.com';
+  const fiscalYearDataEndpoint = '/fiscalSummary';
+  const citizenshipDataEndpoint = '/citizenshipSummary';
+
   const getFiscalData = () => {
     // TODO: Replace this with functionality to retrieve the data from the fiscalSummary endpoint
     const fiscalDataRes = testData;
