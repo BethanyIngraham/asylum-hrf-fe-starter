@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import { App } from './App.jsx';
 import { ProvideAppContext } from './context/AppContext.jsx';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 const AUTH_DOMAIN = import.meta.env.VITE_AUTH_DOMAIN;
 const AUTH_CLIENT_ID = import.meta.env.VITE_AUTH_CLIENT_ID;
@@ -15,6 +16,12 @@ const AUTH_CLIENT_ID = import.meta.env.VITE_AUTH_CLIENT_ID;
  */
 createRoot(document.getElementById('root')).render(
     <ProvideAppContext>
+     <Auth0Provider
+      domain="dev-u8jzasntiv1v6ovi.us.auth0.com"
+      clientId="IA62o6ybjqb45GhQHgqIX9CjWSk3bczF"
+      authorizationParams={{ redirect_uri: window.location.origin }}
+    >
       <App />
+    </Auth0Provider>
     </ProvideAppContext>
 );
